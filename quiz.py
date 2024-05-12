@@ -1,6 +1,6 @@
 import random
 
-
+# this is the menu where u choose what you would like to do
 def display_intro():
     title = "!! Herbs Math Quiz !!"
     print("!" * len(title))
@@ -28,14 +28,14 @@ def get_user_input():
     else:
         return user_input
 
-
+# this is where you type your answer to the question
 def get_user_solution(problem):
     print("Enter your answer")
     print(problem, end="")
     result = int(input(" = "))
     return result
 
-
+# this is where your answer is checked to see if it is correct
 def check_solution(user_solution, solution, count):
     if user_solution == solution:
         count = count + 1
@@ -45,7 +45,7 @@ def check_solution(user_solution, solution, count):
         print("Nope.")
         return count
 
-
+# this is where the questions are generated
 def menu_option(index, count):
     number_one = random.randrange(1, 21)
     number_two = random.randrange(1, 21)
@@ -68,7 +68,7 @@ def menu_option(index, count):
         count = check_solution(user_solution, solution, count)
         return count
 
-
+# this is where your score is rounded
 def display_result(total, correct):
     if total > 0:
         result = correct / total
@@ -92,6 +92,7 @@ def main():
         correct = menu_option(option, correct)
         option = get_user_input()
 
+# here is the exit code
     print("Exit the quiz.")
     display_separator()
     display_result(total, correct)
